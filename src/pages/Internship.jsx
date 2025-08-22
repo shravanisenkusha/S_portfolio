@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -77,6 +78,7 @@ const Internship = () => (
         <p className="text-sm sm:text-base lg:text-lg text-white/80 mb-6">
           Real products. Real roles. Real outcomes.
         </p>
+        <Link to="/contact">
         <PillButton
           className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg lg:text-xl shadow-xl yellow-overlay"
           style={{
@@ -88,6 +90,7 @@ const Internship = () => (
         >
           APPLY FOR NEXT COHORT
         </PillButton>
+        </Link>
       </div>
     </div>
 
