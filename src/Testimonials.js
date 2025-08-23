@@ -16,35 +16,6 @@ import RushabhImg from "./assets/rushabh.jpg";
 
 const testimonials = [
   {
-    name: "Heli Shah",
-    year: 2024,
-    role: "Software Developer Intern",
-    project: "Expense Tracker",
-    image: HeliImg,   // ✅ added
-    skills: [
-      "Software Development",
-      "Database Handling",
-      "Version Control (Git)",
-      "Time Management",
-    ],
-    feedback:
-      "Interning at Senkusha gave me a comprehensive understanding of real-world IT operations...",
-  },
-  {
-    name: "Vidhi Shah",
-    year: 2024,
-    role: "API Tester and OCR Developer",
-    project: "NutriGen",
-    image: VidhiImg,   // ✅ added
-    skills: [
-      "Python (OCR with Tesseract, Pillow)",
-      "API Testing with Postman",
-      "Agile Collaboration",
-    ],
-    feedback:
-      "Senkusha provided a perfect balance of technical growth and team collaboration...",
-  },
-  {
     name: "Darsh",
     year: 2024,
     role: "Backend Developer Intern",
@@ -54,17 +25,7 @@ const testimonials = [
     feedback:
       "At Senkusha, I experienced Agile in action and learned how SDLC phases operate...",
   },
-  {
-    name: "Aziz Hussain",
-    year: 2023,
-    role: "Backend and UI Developer",
-    project: "Authentication Module",
-    image: AzizImg,   // ✅ added
-    skills: ["Golang (REST API)", "React Native (UI)", "Secure Authentication", "Git", "Zoho"],
-    feedback:
-      "This internship transformed my confidence. I gained hands-on full-stack experience...",
-  },
-  {
+{
     name: "Satva Shah",
     year: 2023,
     role: "Fullstack Developer",
@@ -124,17 +85,7 @@ const testimonials = [
     feedback:
       "This internship offered me great technical exposure...",
   },
-  {
-    name: "Vrusha Morakhiya",
-    year: 2024,
-    role: "Flutter Developer",
-    project: "NutriGen",
-    image: VrushaImg,   // ✅ added
-    skills: ["Flutter", "Python Libraries", "Team Communication"],
-    feedback:
-      "Senkusha felt more like a tech family than an internship...",
-  },
-  {
+{
     name: "Nitee Panchal",
     year: 2024,
     role: "Frontend Developer",
@@ -164,6 +115,55 @@ const testimonials = [
     feedback:
       "From Git to product lifecycle, I learned it all at Senkusha...",
   },
-];
+{
+    name: "Vrusha Morakhiya",
+    year: 2024,
+    role: "Flutter Developer",
+    project: "NutriGen",
+    image: VrushaImg,   // ✅ added
+    skills: ["Flutter", "Python Libraries", "Team Communication"],
+    feedback:
+      "Senkusha felt more like a tech family than an internship...",
+  }, 
+  {
+    name: "Heli Shah",
+    year: 2024,
+    role: "Software Developer Intern",
+    project: "Expense Tracker",
+    image: HeliImg,   // ✅ added
+    skills: [
+      "Software Development",
+      "Database Handling",
+      "Version Control (Git)",
+      "Time Management",
+    ],
+    feedback:
+      "Interning at Senkusha gave me a comprehensive understanding of real-world IT operations...",
+  },
+  {
+    name: "Vidhi Shah",
+    year: 2024,
+    role: "API Tester and OCR Developer",
+    project: "NutriGen",
+    image: VidhiImg,   // ✅ added
+    skills: [
+      "Python (OCR with Tesseract, Pillow)",
+      "API Testing with Postman",
+      "Agile Collaboration",
+    ],
+    feedback:
+      "Senkusha provided a perfect balance of technical growth and team collaboration...",
+  },
+  {
+    name: "Aziz Hussain",
+    year: 2023,
+    role: "Backend and UI Developer",
+    project: "Authentication Module",
+    image: AzizImg,   // ✅ added
+    skills: ["Golang (REST API)", "React Native (UI)", "Secure Authentication", "Git", "Zoho"],
+    feedback:
+      "This internship transformed my confidence. I gained hands-on full-stack experience...",
+  }
+  ];
 
 export default testimonials;

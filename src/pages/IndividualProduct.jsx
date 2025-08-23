@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useState } from "react";
 import { MessageSquare, X } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
+import { Link } from "react-router-dom";
 import phoneMockup from "../assets/phone.png";
 import step1 from "../assets/1.png";
 import step2 from "../assets/2.png";
@@ -246,9 +246,11 @@ const NutriGenProductPage = () => {
           <button className="bg-green-700 text-white px-6 py-2 rounded-xl hover:bg-green-800 text-sm sm:text-base">
             Start Using NutriGen
           </button>
+          <Link to="/contact">
           <button className="border border-green-700 text-green-700 px-6 py-2 rounded-xl hover:bg-green-100 text-sm sm:text-base">
             Contact Us
           </button>
+          </Link>
         </div>
       </section>
 

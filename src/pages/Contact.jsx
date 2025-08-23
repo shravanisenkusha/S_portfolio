@@ -175,7 +175,7 @@ export default function ContactUs() {
                     {
                       icon: <MapPin className="w-5 h-5 text-purple-600" />,
                       label: "Address",
-                      value: "Shop No. 12 GF, Prasanna Jeevan Co-Operative Housing Society Limited, CTS No. 32C, Eksar Village,Borivali Eksar Road, Bandar District, MumbaiSuburbaMumbai - 400092Maharashtra (27),India"
+                      value: "WeWork NESCO IT Park, Building no. 4, Western Express Highway, Goregaon (East),Mumbai, Maharashtra,400063"
                     }
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-start space-x-4">

@@ -19,7 +19,7 @@ const Testimonials = () => {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    
   };
 
 
@@ -37,7 +37,7 @@ const TestimonialCard = ({ testimonial }) => (
     <img
       src={testimonial.image || require("../assets/user.jpg")}
       alt={testimonial.name}
-      className="w-full h-full object-cover object-center"
+      className="w-full h-full object-cover object-top"
     />
   </div>
   <h3 className="font-bold text-gray-900 text-sm md:text-lg text-center">
