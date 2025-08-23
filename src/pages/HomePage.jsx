@@ -3,7 +3,6 @@ import { MessageSquare, X } from "lucide-react";
 import { products, services } from "../data";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import ServicesCarausel from "../components/ServicesCarausel";
 import ProductsGrid from "../components/ui/ProductsGrid";
 import HeroHeader from "../components/HeroHeader";
 import TimelineSection from "../components/TimeLine";

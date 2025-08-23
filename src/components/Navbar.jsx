@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { products, services } from "../data";
+import { products } from "../data";
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(null);

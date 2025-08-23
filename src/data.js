@@ -1,7 +1,7 @@
 import DatagptImage from "./assets/Datagpt.png";
 import NutrigenImage from "./assets/Nutrigen.png";
 import ResumeImage from "./assets/Resume.png";
-import UserImage from "./assets/user.jpg";
+
 import Mentor1 from "./assets/mentor1.jpg";
 import Mentor2 from "./assets/mentor2.jpg";
 import Mentor3 from "./assets/mentor3.jpg";
@@ -9,10 +9,7 @@ import Mentor4 from "./assets/mentor4.jpg";
 import Mentor5 from "./assets/mentor5.jpg";
 import DemoImage from "./assets/demo.jpg";
 import PhoneMockup from "./assets/phone.png";
-import OneImg from "./assets/1.png";
-import TwoImg from "./assets/2.png";
-import ThreeImg from "./assets/3.png";
-import demoImage from "./assets/demo.jpg";
+
 
 export const products = [
   {

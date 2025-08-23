@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import ResumeImage from '../assets/Resume.png';
 
 const ResumeAnalyzerProductPage = () => {

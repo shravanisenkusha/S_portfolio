@@ -4,7 +4,7 @@ import { services } from "../data";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import demoImage from "../assets/demo.jpg";
-import { Button } from "../components/ui/Button";
+
 
 export default function IndividualService() {
   const { id } = useParams();

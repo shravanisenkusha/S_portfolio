@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Star, Quote, Code } from "lucide-react";
+import { Star} from "lucide-react";
 import testimonials from "../Testimonials";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
