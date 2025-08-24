@@ -5,6 +5,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+
 import {
   FaGithub,
   FaFigma,
@@ -18,9 +19,11 @@ import { VscCode } from "react-icons/vsc";
 import { GoCloud } from "react-icons/go";
 import { FiDatabase } from "react-icons/fi";
 import { TbGitBranch } from "react-icons/tb";
+
 import { Accordion, AccordionItem } from "../components/ui/Accordion";
 import PillButton from "../components/ui/PillButton";
 
+// Assets
 import intern_s1 from "../assets/intern_s1.jpg";
 import intern_s2 from "../assets/intern_s2.jpg";
 import intern_s3 from "../assets/intern_s3.jpg";
@@ -31,8 +34,9 @@ import ExperienceImg from "../assets/experience.png";
 import TeamImg from "../assets/team.png";
 import CloudImg from "../assets/cloud.png";
 import ProjectImg from "../assets/project.png";
+import collegelogo from "../assets/collegelogo.png"; // ✅ fixed import name
 
-
+// Steps Data
 const steps = [
   { id: 1, text: "Students apply and go through a selection process", image: intern_s1 },
   { id: 2, text: "We conduct one-on-one sessions to understand interests", image: intern_s2 },
@@ -41,6 +45,7 @@ const steps = [
   { id: 5, text: "Projects are planned, built, reviewed, and demoed", image: intern_s5 },
 ];
 
+// Tools Data
 const tools = [
   { name: "GitHub", icon: FaGithub },
   { name: "VS Code", icon: VscCode },
@@ -59,110 +64,112 @@ const duplicatedTools = [...tools, ...tools];
 
 const Internship = () => (
   <div className="flex flex-col">
-    {/* Hero Section 
-    <div className="w-full min-h-[24rem] sm:min-h-[32rem] lg:min-h-[36rem] flex items-center justify-center text-center px-4 bg-gradient-to-r from-purple-600 to-indigo-700">
-      <div className="w-full max-w-3xl text-white">
-        <div className="inline-block bg-white/20 text-white text-xs sm:text-sm font-semibold px-3 py-1 rounded-full mb-4">
-          INTERNSHIP SIMULATION PAGE
-        </div>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3">
-          This Isn't Just Training.
-        </h1>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#fff500] mb-5">
-          It's Tech Culture in Action.
-        </h2>
-        <p className="text-base sm:text-lg lg:text-xl mb-3 px-2">
-          Analyze, test, and make smarter decisions—so you can build experiences
-          that move the needle.
-        </p>
-        <p className="text-sm sm:text-base lg:text-lg text-white/80 mb-6">
-          Real products. Real roles. Real outcomes.
-        </p>
-        <Link to="/contact">
-        <PillButton
-          className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg lg:text-xl shadow-xl yellow-overlay"
-          style={{
-            background: "#ffffff",
-            borderColor: "#fbbf24",
-            color: "#1f2937",
-            boxShadow: "0 4px 20px 0 rgba(251, 191, 36, 0.2)",
-          }}
-        >
-          APPLY FOR NEXT COHORT
-        </PillButton>
-        </Link>
-      </div>
-    </div> */}
 
-{/* How We Operate */}
-<section className="py-16 px-4 bg-white">
-  <div className="text-center mb-12">
-    <h2 className="text-3xl sm:text-4xl font-bold mb-4">How We Operate</h2>
-    <p className="text-gray-600 max-w-2xl mx-auto text-base">
-      Every batch mimics a mini software company with tech rituals, delivery
-      goals, and continuous mentorship.
-    </p>
-  </div>
-
-  {/* Carousel Wrapper */}
-  <div className="max-w-6xl mx-auto relative">
-    <Swiper
-      modules={[Navigation, Pagination, Autoplay]}
-      spaceBetween={30}
-      slidesPerView={1}
-      loop={true}
-      autoplay={{ delay: 2000, disableOnInteraction: false }}
-      pagination={{ clickable: true }}
-      navigation={true}
-      breakpoints={{
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
-      }}
-      className="pb-16" // 👈 adds space so dots sit below
-      style={{
-        "--swiper-navigation-color": "#6b21a8",
-        "--swiper-pagination-color": "#6b21a8",
-        "--swiper-pagination-bullet-inactive-color": "#c4b5fd",
-        "--swiper-pagination-bullet-inactive-opacity": "1",
-      }}
-    >
-      {steps.map(({ id, text, image }) => (
-        <SwiperSlide key={id}>
-          <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-[400px]">
-            {/* Image container with fixed height */}
-            <div className="h-48 flex items-center justify-center bg-white">
-              <img
-                src={image}
-                alt={`Step ${id}`}
-                className="max-h-full object-contain"
+    {/* Partnered Colleges */}
+    <section className="py-10 px-4 bg-gray-50">
+      <div className="max-w-5xl mx-auto">
+        <div className="rounded-2xl shadow-xl p-8 flex flex-col sm:flex-row items-start gap-6 
+          bg-gradient-to-br from-purple-500 to-purple-700 text-white">
+          
+          {/* Icon / Logo */}
+          <div className="flex-shrink-0">
+            <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center">
+              <img 
+                src={collegelogo}   // ✅ correct usage
+                alt="College Logo"
+                className="h-10 w-10 object-contain"
               />
             </div>
+          </div>
 
-            {/* Content */}
-            <div className="p-6 flex-1 flex flex-col justify-start">
-              <div className="flex items-center gap-3 mb-3 justify-center">
-                {/* Round Purple Circle */}
-                <div className="h-14 w-14 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white flex items-center justify-center font-bold text-lg">
-                  {id}
-                </div>
-              </div>
-              {/* Bold text */}
-              <p className="text-gray-800 text-sm font-semibold leading-relaxed text-center">
-                {text}
-              </p>
+          {/* Text */}
+          <div className="flex flex-col gap-3">
+            <h2 className="text-xl font-bold">
+              Tied Up With <span className="text-yellow-300">Shri Vile Parle Kelavani Mandal's</span>
+            </h2>
+
+            <div className="space-y-2">
+              <a 
+                href="https://www.djsce.ac.in/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block bg-white/10 px-4 py-2 rounded-lg shadow-md hover:bg-white/20 transition"
+              >
+                Dwarkadas Jivanlal Sanghvi College of Engineering, Mumbai
+              </a>
+
+              <a 
+                href="https://www.sbmp.ac.in/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block bg-white/10 px-4 py-2 rounded-lg shadow-md hover:bg-white/20 transition"
+              >
+                Shri Bhagubhai Mafatlal Polytechnic and College of Engineering, Mumbai
+              </a>
             </div>
           </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  </div>
-</section>
+        </div>
+      </div>
+    </section>
 
+    {/* How We Operate */}
+    <section className="py-16 px-4 bg-white">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4">How We Operate</h2>
+        <p className="text-gray-600 max-w-2xl mx-auto text-base">
+          Every batch mimics a mini software company with tech rituals, delivery
+          goals, and continuous mentorship.
+        </p>
+      </div>
 
-
-
-
-
+      {/* Carousel */}
+      <div className="max-w-6xl mx-auto relative">
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={30}
+          slidesPerView={1}
+          loop={true}
+          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          pagination={{ clickable: true }}
+          navigation={true}
+          breakpoints={{
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          className="pb-16"
+          style={{
+            "--swiper-navigation-color": "#6b21a8",
+            "--swiper-pagination-color": "#6b21a8",
+            "--swiper-pagination-bullet-inactive-color": "#c4b5fd",
+            "--swiper-pagination-bullet-inactive-opacity": "1",
+          }}
+        >
+          {steps.map(({ id, text, image }) => (
+            <SwiperSlide key={id}>
+              <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-[400px]">
+                <div className="h-48 flex items-center justify-center bg-white">
+                  <img
+                    src={image}
+                    alt={`Step ${id}`}
+                    className="max-h-full object-contain"
+                  />
+                </div>
+                <div className="p-6 flex-1 flex flex-col justify-start">
+                  <div className="flex items-center gap-3 mb-3 justify-center">
+                    <div className="h-14 w-14 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white flex items-center justify-center font-bold text-lg">
+                      {id}
+                    </div>
+                  </div>
+                  <p className="text-gray-800 text-sm font-semibold leading-relaxed text-center">
+                    {text}
+                  </p>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </section>
 
     {/* Paid Program Disclosure */}
     <section className="py-24 bg-gray-50">
@@ -212,68 +219,65 @@ const Internship = () => (
     </section>
 
     {/* What You Work With */}
-<section className="py-16  bg-gradient-to-r from-purple-600 to-indigo-700">
-  <div className="container mx-auto px-4">
-    <div className="text-center mb-10">
-      <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-        What You Work With
-      </h2>
-    </div>
-    <div className="relative overflow-hidden">
-      <div className="flex gap-6 whitespace-nowrap animate-scroll-x px-2 py-6 w-max">
-        {duplicatedTools.map(({ name, icon: Icon }, i) => (
-          <div
-            key={i}
-            className="min-w-[160px] shrink-0 bg-white border border-gray-200 hover:border-purple-600 hover:border-2 rounded-lg p-6 text-center hover:shadow-lg hover:scale-105 transition-all"
-          >
-            <Icon className="h-10 w-10 mx-auto mb-3 text-gray-600 group-hover:text-purple-600 transition-colors" />
-            <p className="font-medium text-gray-700 text-sm">{name}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
-
-
-{/* What You Learn */}
-<section className="py-10 bg-gray-50">
-  <div className="container mx-auto px-4">
-    <div className="text-center mb-16">
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-        You'll Walk Away With:
-      </h2>
-      <p className="text-gray-600 text-lg">
-        You're not just learning tools — you're applying them like in a real job.
-      </p>
-    </div>
-
-    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-      {[
-        { title: "Real product experience", icon: ExperienceImg },
-        { title: "Team collaboration skills", icon: TeamImg },
-        { title: "Cloud & Git fluency", icon: CloudImg },
-        { title: "Demo-worthy project for resume", icon: ProjectImg },
-      ].map((item, i) => (
-        <div
-          key={i}
-          className="text-center bg-white border border-gray-200 hover:border-purple-600 hover:border-2 rounded-lg hover:shadow-md transition p-8"
-        >
-          <div className="w-20 h-20 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6 overflow-hidden">
-            <img
-              src={item.icon}
-              alt={item.title}
-              className="w-18 h-18 object-contain"
-            />
-          </div>
-          <h3 className="font-semibold text-gray-900 text-lg">{item.title}</h3>
+    <section className="py-16 bg-gradient-to-r from-purple-600 to-indigo-700">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            What You Work With
+          </h2>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+        <div className="relative overflow-hidden">
+          <div className="flex gap-6 whitespace-nowrap animate-scroll-x px-2 py-6 w-max">
+            {duplicatedTools.map(({ name, icon: Icon }, i) => (
+              <div
+                key={i}
+                className="min-w-[160px] shrink-0 bg-white border border-gray-200 hover:border-purple-600 hover:border-2 rounded-lg p-6 text-center hover:shadow-lg hover:scale-105 transition-all"
+              >
+                <Icon className="h-10 w-10 mx-auto mb-3 text-gray-600 group-hover:text-purple-600 transition-colors" />
+                <p className="font-medium text-gray-700 text-sm">{name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
 
+    {/* What You Learn */}
+    <section className="py-10 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            You'll Walk Away With:
+          </h2>
+          <p className="text-gray-600 text-lg">
+            You're not just learning tools — you're applying them like in a real job.
+          </p>
+        </div>
 
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          {[
+            { title: "Real product experience", icon: ExperienceImg },
+            { title: "Team collaboration skills", icon: TeamImg },
+            { title: "Cloud & Git fluency", icon: CloudImg },
+            { title: "Demo-worthy project for resume", icon: ProjectImg },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="text-center bg-white border border-gray-200 hover:border-purple-600 hover:border-2 rounded-lg hover:shadow-md transition p-8"
+            >
+              <div className="w-20 h-20 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6 overflow-hidden">
+                <img
+                  src={item.icon}
+                  alt={item.title}
+                  className="w-18 h-18 object-contain"
+                />
+              </div>
+              <h3 className="font-semibold text-gray-900 text-lg">{item.title}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
     {/* FAQ Accordion */}
     <section className="py-24 bg-gray-50">

@@ -8,7 +8,7 @@ const contentData = [
     subtitle:
       "Senkusha is where builders are born. We simulate the environment of a real tech company to turn learners into creators who are ready to take on top jobs or start their own ventures.",
     tooltip: " 'We bridge the gap between theory and real-world tech execution.' ",
-    icon: <FaUserTie className="text-3xl text-purple-700" />,
+    icon: <FaUserTie className="text-3xl text-white" />,
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const contentData = [
       "Product Development - Full-cycle product engineering for startups.",
       "AI & Non-AI Solutions - Build intelligent, scalable platforms.",
     ],
-    icon: <FaBoxes className="text-3xl text-purple-700" />,
+    icon: <FaBoxes className="text-3xl text-white" />,
   },
   {
     id: 3,
@@ -27,9 +27,9 @@ const contentData = [
       "3 Years of Proven Success",
       "50+ Students Onboarded",
       "100% 5-Star Ratings",
-      "Partnered with DJ Sanghvi & Bhagubhai Polytechnic",
+      
     ],
-    icon: <FaChartLine className="text-3xl text-purple-700" />,
+    icon: <FaChartLine className="text-3xl text-white" />,
   },
   {
     id: 4,
@@ -42,12 +42,12 @@ const contentData = [
       "Real roles: Dev, QA, UI, DevOps, PM.",
       "Full agile rituals and SDLC exposure.",
     ],
-    icon: <FaRocket className="text-3xl text-purple-700" />,
+    icon: <FaRocket className="text-3xl text-white" />,
   },
 ];
 
-// ✅ Apply the same effect for all cards
-const commonEffect = "hover:rotate-1 hover:shadow-xl hover:shadow-purple-500/50";
+// ✅ Common hover effect
+const commonEffect = "hover:rotate-1 hover:shadow-xl hover:shadow-purple-900/50";
 
 const ContentCard = ({ item }) => (
   <motion.div
@@ -56,38 +56,39 @@ const ContentCard = ({ item }) => (
     transition={{ duration: 0.5, ease: "easeOut" }}
     viewport={{ once: true }}
     className={`rounded-2xl p-8 flex flex-col gap-4 transition-all duration-300
-      bg-gradient-to-br from-purple-100 to-white border-2 border-purple-200 shadow-xl ${commonEffect}`}
+      bg-gradient-to-br from-purple-500 via-purple-600 to-purple-700 border-2 border-purple-700 shadow-xl ${commonEffect}`}
+
   >
     {/* Icon + Title */}
     <div className="flex items-center gap-3">
-      <div className="w-12 h-12 bg-purple-200 flex items-center justify-center rounded-full shadow-inner">
+      <div className="w-12 h-12 bg-purple-900 flex items-center justify-center rounded-full shadow-inner">
         {item.icon}
       </div>
-      <h2 className="text-xl font-semibold bg-gradient-to-r from-purple-700 via-pink-600 to-purple-500 bg-clip-text text-transparent drop-shadow-sm">
+      <h2 className="text-xl font-semibold text-white drop-shadow-sm">
         {item.title}
       </h2>
     </div>
 
     {/* Subtitle */}
     {item.subtitle && (
-      <p className="text-purple-700/90 text-base leading-relaxed drop-shadow-[0_0_6px_rgba(168,85,247,0.2)]">
+      <p className="text-white/90 text-base leading-relaxed">
         {item.subtitle}
       </p>
     )}
 
     {/* Tooltip */}
     {item.tooltip && (
-      <p className="text-sm italic text-purple-500">{item.tooltip}</p>
+      <p className="text-sm italic text-white/70">{item.tooltip}</p>
     )}
 
     {/* Points */}
     {item.points && (
-      <ul className="space-y-2 text-purple-800 text-base">
+      <ul className="space-y-2 text-white text-base">
         {item.points.map((point, i) => (
           <li key={i} className="flex items-start gap-2">
             <FaCheckCircle
               size={14}
-              className="text-purple-600 mt-1 flex-shrink-0"
+              className="text-white mt-1 flex-shrink-0"
             />
             {point}
           </li>
@@ -95,30 +96,29 @@ const ContentCard = ({ item }) => (
       </ul>
     )}
 
-    {/* Stats */}
+  {/* Stats */}
 {item.stats && (
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
     {item.stats.map((stat, i) => (
       <div
         key={i}
-        className="text-center p-4 rounded-xl font-medium shadow-md hover:shadow-lg transition bg-purple-200 text-purple-900"
+        className={`text-center p-4 rounded-xl font-medium shadow-md hover:shadow-lg transition bg-purple-900 text-white
+          ${item.stats.length % 2 !== 0 && i === item.stats.length - 1 ? "sm:col-span-2 sm:mx-auto sm:w-1/2" : ""}`}
       >
         {stat}
       </div>
     ))}
   </div>
-  
 )}
-
 
     {/* Bullets */}
     {item.bullets && (
-      <ul className="space-y-2 text-purple-800 text-base">
+      <ul className="space-y-2 text-white text-base">
         {item.bullets.map((bullet, i) => (
           <li key={i} className="flex items-start gap-2">
             <FaCheckCircle
               size={14}
-              className="text-purple-600 mt-1 flex-shrink-0"
+              className="text-white mt-1 flex-shrink-0"
             />
             {bullet}
           </li>
@@ -130,7 +130,7 @@ const ContentCard = ({ item }) => (
 
 const HeroSection = () => {
   return (
-    <section className="py-16 bg-gradient-to-b from-purple-50 to-white">
+    <section className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-6 space-y-12">
         {/* Grid with all 4 cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
