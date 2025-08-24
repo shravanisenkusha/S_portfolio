@@ -56,45 +56,12 @@ const Navbar = () => {
           </Link>
         </li>
 
-        
-
-        {/*
-        // Services Dropdown
-        <li className="relative dropdown-parent">
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              toggleDropdown("services");
-            }}
-            className="flex items-center gap-1 hover:text-purple-600"
-          >
-            Services <ChevronDown size={16} />
-          </button>
-          {showDropdown === "services" && (
-            <ul className="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-md py-2 px-4 z-50">
-              {services.map((service, idx) => (
-                <li
-                  key={idx}
-                  className="py-1 hover:text-purple-600 flex items-center gap-2"
-                >
-                  <img
-                    src={service.image}
-                    alt={service.name}
-                    className="w-5 h-5 object-cover rounded"
-                  />
-                  <Link to={`/service/${service.id}`}>{service.name}</Link>
-                </li>
-              ))}
-            </ul>
-          )}
-        </li>
-        */}
-
         <li>
           <Link to="/testimonials" className="hover:text-purple-600">
             Testimonials
           </Link>
         </li>
+
         {/* Products Dropdown */}
         <li className="relative dropdown-parent">
           <button
@@ -113,24 +80,22 @@ const Navbar = () => {
                   key={product.id}
                   className="py-1 hover:text-purple-600 flex items-center gap-2"
                 >
-                  <img src={product.image} alt={product.name} className="w-5 h-5" />
-                  {product.id === 3 ? ( // Resume Analyzer opens internal page
-                    <Link to="/resume-analyzer">{product.name}</Link>
-                  ) : (
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-5 h-5"
+                  />
+                  {product.id === 2 ? (
                     <Link to={`/product/${product.id}`}>{product.name}</Link>
+                  ) : (
+                    <Link to="/coming-soon">{product.name}</Link>
                   )}
                 </li>
               ))}
             </ul>
           )}
         </li>
-        {/*
-        <li>
-          <Link to="/internship" className="hover:text-purple-600">
-            Interns
-          </Link>
-        </li>
-        */}
+
         <li>
           <Link to="/contact" className="hover:text-purple-600">
             Contact
@@ -169,42 +134,6 @@ const Navbar = () => {
             </Link>
           </li>
 
-          
-          {/*
-          <li>
-            <div className="dropdown-parent">
-              <button
-                onClick={() => toggleDropdown("services")}
-                className="flex items-center gap-1 hover:text-purple-600 w-full text-left"
-              >
-                Services <ChevronDown size={16} />
-              </button>
-              {showDropdown === "services" && (
-                <ul className="mt-2 bg-white shadow rounded-md py-2 px-4">
-                  {services.map((service, idx) => (
-                    <li
-                      key={idx}
-                      className="py-1 hover:text-purple-600 flex items-center gap-2"
-                    >
-                      <img
-                        src={service.image}
-                        alt={service.name}
-                        className="w-5 h-5 object-cover rounded"
-                      />
-                      <Link
-                        to={`/service/${service.id}`}
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {service.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </li>
-          */}
-
           <li>
             <Link
               to="/testimonials"
@@ -214,18 +143,8 @@ const Navbar = () => {
               Testimonials
             </Link>
           </li>
-          {/*
+
           <li>
-            <Link
-              to="/internship"
-              className="hover:text-purple-600"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Interns
-            </Link>
-          </li>
-           */}
-           <li>
             <div className="dropdown-parent">
               <button
                 onClick={() => toggleDropdown("products")}
@@ -240,17 +159,21 @@ const Navbar = () => {
                       key={product.id}
                       className="py-1 hover:text-purple-600 flex items-center gap-2"
                     >
-                      <img src={product.image} alt={product.name} className="w-5 h-5" />
-                      {product.id === 3 ? (
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-5 h-5"
+                      />
+                      {product.id === 2 ? (
                         <Link
-                          to="/resume-analyzer"
+                          to={`/product/${product.id}`}
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {product.name}
                         </Link>
                       ) : (
                         <Link
-                          to={`/product/${product.id}`}
+                          to="/coming-soon"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {product.name}

@@ -6,9 +6,9 @@ import IndividualProduct from "./pages/IndividualProduct";
 import IndividualService from "./pages/IndividualService";
 import Testimonials from "./pages/Testimonials";
 // import Testimonial2 from "./pages/Testimonial2";
-import ComingSoon from "./pages/ComingSoon";
+import ComingSoon from "./pages/ComingSoon";   // ✅ keep import here
 import Internship from "./pages/Internship";
-import ResumeAnalyzerProductPage from './pages/ResumeAnalyzerProductPage';
+import ResumeAnalyzerProductPage from "./pages/ResumeAnalyzerProductPage";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/internship" element={<Internship />} />
-        <Route path="/comingsoon" element={<ComingSoon />} />
+        <Route path="/coming-soon" element={<ComingSoon />} />   {/* ✅ updated */}
         <Route path="/product/:id" element={<IndividualProduct />} />
         <Route path="/service/:id" element={<IndividualService />} />
         <Route path="/resume-analyzer" element={<ResumeAnalyzerProductPage />} />
