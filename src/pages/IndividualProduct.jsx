@@ -200,33 +200,7 @@ const NutriGenProductPage = () => {
         </ul>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="py-16 px-4 sm:px-6 lg:px-20 bg-green-50">
-        <h2 className="text-2xl sm:text-3xl font-semibold text-center mb-12">
-          What Our Users Say
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {[
-            {
-              name: "Vidhi Shah",
-              text: "NutriGen makes calorie tracking effortless! I just scan and go.",
-            },
-            {
-              name: "Vrusha Morakhiya",
-              text: "This app helped me manage my diet during my fitness journey. Love the dashboard!",
-            },
-          ].map((t, i) => (
-            <div key={i} className="bg-white p-6 rounded-xl shadow">
-              <p className="italic text-gray-700 text-sm sm:text-base">
-                “{t.text}”
-              </p>
-              <p className="mt-4 font-semibold text-right text-sm sm:text-base">
-                — {t.name}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+      
 
       {/* RELEASING SOON SECTION */}
 <section className="py-20 px-4 sm:px-6 lg:px-20 text-center bg-gradient-to-r from-green-200 to-blue-200">
