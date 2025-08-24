@@ -23,6 +23,7 @@ export const products = [
     ],
     image: DatagptImage,
     category: "AI & Analytics",
+    comingSoon: true, // 🚀 mark as coming soon
   },
   {
     id: 2,
@@ -35,7 +36,8 @@ export const products = [
     ],
     image: NutrigenImage,
     category: "Health & Wellness",
-  
+    comingSoon: false, // ✅ live product
+    link: "/nutrigen", // route for this product page
   },
   {
     id: 3,
@@ -48,9 +50,7 @@ export const products = [
     ],
     image: ResumeImage,
     category: "Career Tools",
-    
-    isExternal: true,
-    externalUrl: "https://resume-analyzer-app-351747392494.asia-south1.run.app"
+    comingSoon: true, // 🚀 mark as coming soon
   }
 ];
 

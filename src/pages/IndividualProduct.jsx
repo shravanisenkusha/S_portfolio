@@ -53,24 +53,18 @@ const NutriGenProductPage = () => {
             happier you.
           </p>
           <div className="flex justify-center lg:justify-start gap-4 mt-6 flex-wrap">
-            <a
-              href="#"
-              className="bg-black text-white px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-gray-900 transition text-sm sm:text-base"
+            <button
+              disabled
+              className="bg-gray-300 text-gray-600 px-6 py-3 rounded-lg flex items-center gap-2 cursor-not-allowed text-sm sm:text-base"
             >
-              <span role="img" aria-label="apple">
-                🍏
-              </span>{" "}
-              iOS Download
-            </a>
-            <a
-              href="#"
-              className="bg-green-600 text-white px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-green-700 transition text-sm sm:text-base"
+              🍏 iOS Download
+            </button>
+            <button
+              disabled
+              className="bg-gray-300 text-gray-600 px-6 py-3 rounded-lg flex items-center gap-2 cursor-not-allowed text-sm sm:text-base"
             >
-              <span role="img" aria-label="android">
-                🤖
-              </span>{" "}
-              Android Download
-            </a>
+              🤖 Android Download
+            </button>
           </div>
         </div>
         <div className="lg:w-1/2 flex justify-center z-10 mb-12 lg:mb-0">
@@ -234,25 +228,16 @@ const NutriGenProductPage = () => {
         </div>
       </section>
 
-      {/* CTA SECTION */}
-      <section className="py-16 px-4 sm:px-6 lg:px-20 text-center bg-gradient-to-r from-green-200 to-blue-200">
-        <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-          Ready to Transform Your Nutrition?
-        </h2>
-        <p className="mb-6 text-sm sm:text-base">
-          Start using NutriGen or contact us for integration into your platform.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <button className="bg-green-700 text-white px-6 py-2 rounded-xl hover:bg-green-800 text-sm sm:text-base">
-            Start Using NutriGen
-          </button>
-          <Link to="/contact">
-          <button className="border border-green-700 text-green-700 px-6 py-2 rounded-xl hover:bg-green-100 text-sm sm:text-base">
-            Contact Us
-          </button>
-          </Link>
-        </div>
-      </section>
+      {/* RELEASING SOON SECTION */}
+<section className="py-20 px-4 sm:px-6 lg:px-20 text-center bg-gradient-to-r from-green-200 to-blue-200">
+  <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-black">
+    🚀 Releasing Soon...
+  </h2>
+  <p className="text-black text-sm sm:text-base">
+    Stay tuned for the launch of NutriGen. Exciting features are on the way!
+  </p>
+</section>
+
 
       {/* FLOATING FAQ CHAT */}
       <div className="fixed bottom-6 right-6 z-50">

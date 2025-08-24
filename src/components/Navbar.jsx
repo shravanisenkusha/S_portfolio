@@ -88,7 +88,7 @@ const Navbar = () => {
                   {product.id === 2 ? (
                     <Link to={`/product/${product.id}`}>{product.name}</Link>
                   ) : (
-                    <Link to="/coming-soon">{product.name}</Link>
+                    <Link to="/comingsoon">{product.name}</Link>
                   )}
                 </li>
               ))}
@@ -173,7 +173,7 @@ const Navbar = () => {
                         </Link>
                       ) : (
                         <Link
-                          to="/coming-soon"
+                          to="/comingsoon"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {product.name}

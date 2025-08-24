@@ -19,7 +19,7 @@ function App() {
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/internship" element={<Internship />} />
-        <Route path="/coming-soon" element={<ComingSoon />} />   {/* ✅ updated */}
+        <Route path="/comingsoon" element={<ComingSoon />} />   {/* ✅ updated */}
         <Route path="/product/:id" element={<IndividualProduct />} />
         <Route path="/service/:id" element={<IndividualService />} />
         <Route path="/resume-analyzer" element={<ResumeAnalyzerProductPage />} />
