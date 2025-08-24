@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Star} from "lucide-react";
+import { Star } from "lucide-react";
 import testimonials from "../Testimonials";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -19,63 +19,51 @@ const Testimonials = () => {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
-    
   };
 
+  // ✅ Testimonial Card with smoother animation + crisp images
+  const TestimonialCard = ({ testimonial }) => (
+    <motion.div
+      initial={{ opacity: 0}}
+      animate={{ opacity: 1}}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="bg-[#fcfbf5] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform border border-gray-100 overflow-hidden flex flex-col md:flex-row p-6 gap-6"
+    >
+      {/* Left section */}
+      <div className="flex flex-col items-center justify-center md:w-[30%] w-full py-4">
+        <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-purple-200 mb-4">
+          <img
+            src={testimonial.image || require("../assets/user.jpg")}
+            alt={testimonial.name}
+            className="w-full h-full object-cover object-top"
+            loading="lazy"
+            width={400}
+            height={400}
+          />
+        </div>
+        <h3 className="font-bold text-gray-900 text-sm md:text-lg text-center">
+          {testimonial.name} ~ {testimonial.year}
+        </h3>
+        <p className="text-xs md:text-sm text-gray-600 text-center mb-2">
+          {testimonial.role}
+        </p>
+        <div className="flex items-center justify-center space-x-1 mt-1">
+          {[...Array(5)].map((_, i) => (
+            <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+          ))}
+        </div>
+      </div>
 
-
-const TestimonialCard = ({ testimonial }) => (
-  <motion.div
-    initial={{ rotateY: 180, opacity: 0 }}
-    animate={{ rotateY: 0, opacity: 1 }}
-    transition={{ duration: 1, ease: "easeInOut" }}
-    className="bg-[#fcfbf5] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform border border-gray-100 overflow-hidden flex flex-col md:flex-row p-6 gap-6"
-  >
-   {/* Left section */}
-<div className="flex flex-col items-center justify-center md:w-[30%] w-full py-4">
-  <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-purple-200 mb-4">
-    <img
-      src={testimonial.image || require("../assets/user.jpg")}
-      alt={testimonial.name}
-      className="w-full h-full object-cover object-top"
-    />
-  </div>
-  <h3 className="font-bold text-gray-900 text-sm md:text-lg text-center">
-    {testimonial.name} ~ {testimonial.year}
-  </h3>
-  <p className="text-xs md:text-sm text-gray-600 text-center mb-2">
-    {testimonial.role}
-  </p>
-  <div className="flex items-center justify-center space-x-1 mt-1">
-    {[...Array(5)].map((_, i) => (
-      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-    ))}
-  </div>
-</div>
-
-
-
-    {/* Right section */}
-    <div className="flex-1 flex flex-col justify-center">
-      <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg p-3 mb-4 flex items-center justify-between">
-        <div className="flex items-center space-x-2">
-          
+      {/* Right section */}
+      <div className="flex-1 flex flex-col justify-center">
+        <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg p-3 mb-4 flex items-center justify-between">
           <span className="font-semibold text-purple-800 text-sm md:text-base">
             Worked on {testimonial.project}
           </span>
         </div>
-      </div>
-
-      <div className="mb-4">
-        <div className="flex items-start space-x-2 mb-3">
-          
-          <p className="text-gray-700 text-sm md:text-base leading-relaxed italic">
-            "{testimonial.feedback}"
-          </p>
-        </div>
-      </div>
-
-      <div>
+        <p className="text-gray-700 text-sm md:text-base leading-relaxed italic mb-4">
+          "{testimonial.feedback}"
+        </p>
         <h4 className="text-xs md:text-sm font-semibold text-gray-700 mb-2">
           Skills Developed:
         </h4>
@@ -90,11 +78,10 @@ const TestimonialCard = ({ testimonial }) => (
           ))}
         </div>
       </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
 
-
+  // ✅ Mentor card with hover tooltip + crisp images
   const MentorImageCard = ({ mentor, idx }) => {
     const showBelow = idx === 0 || idx === 1;
     const sizeClass =
@@ -102,7 +89,9 @@ const TestimonialCard = ({ testimonial }) => (
     const extraTransform = idx === 3 ? "translate-y-[-16px]" : "";
 
     return (
-      <div
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.3 }}
         className={`relative group flex items-center justify-center -m-14 md:-m-20 ${extraTransform}`}
       >
         {showBelow ? (
@@ -155,9 +144,12 @@ const TestimonialCard = ({ testimonial }) => (
             src={mentor.image}
             alt={mentor.name}
             className="w-full h-full object-cover object-top rounded-full"
+            loading="lazy"
+            width={400}
+            height={400}
           />
         </div>
-      </div>
+      </motion.div>
     );
   };
 
@@ -165,6 +157,7 @@ const TestimonialCard = ({ testimonial }) => (
     <div>
       <Navbar />
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-purple-50">
+        {/* Hero */}
         <div className="bg-gradient-to-r from-purple-600 to-indigo-700 text-white py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -177,6 +170,7 @@ const TestimonialCard = ({ testimonial }) => (
           </div>
         </div>
 
+        {/* Stats */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
           <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -206,6 +200,7 @@ const TestimonialCard = ({ testimonial }) => (
           </div>
         </div>
 
+        {/* Testimonials */}
         <div className="max-w-7xl 2xl:max-w-full mx-auto px-2 py-12 xl:px-4 2xl:px-[72px]">
           <div className="text-center mb-8 xl:mb-6">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -229,10 +224,10 @@ const TestimonialCard = ({ testimonial }) => (
             onPageChange={handlePageChange}
           />
 
-          {/* ✅ Responsive About Us with Mentor Image on Right for lg+ */}
+          {/* About Us + Mentor grid */}
           <div className="w-full mt-20 mb-12">
             <div className="flex flex-col lg:flex-row-reverse bg-[#fcfbf5] rounded-2xl shadow-lg overflow-hidden">
-              {/* Mentor Image Grid (Right on lg) */}
+              {/* Mentor Image Grid */}
               <div className="w-full lg:w-1/2 bg-[#fcfbf5] flex justify-center items-center p-8">
                 <div className="grid grid-cols-3 grid-rows-3 gap-0 w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] md:w-[500px] md:h-[500px]">
                   <div className="row-start-1 col-start-1 flex items-center justify-center">
@@ -253,7 +248,7 @@ const TestimonialCard = ({ testimonial }) => (
                 </div>
               </div>
 
-              {/* About Us Content (Left on lg) */}
+              {/* About Us Content */}
               <div className="w-full lg:w-1/2 p-8 flex flex-col justify-center bg-[#fcfbf5] text-center">
                 <span className="inline-block bg-yellow-300 text-gray-900 font-bold px-4 py-1 rounded mb-6 text-sm tracking-widest">
                   ABOUT US

@@ -59,7 +59,7 @@ const duplicatedTools = [...tools, ...tools];
 
 const Internship = () => (
   <div className="flex flex-col">
-    {/* Hero Section */}
+    {/* Hero Section 
     <div className="w-full min-h-[24rem] sm:min-h-[32rem] lg:min-h-[36rem] flex items-center justify-center text-center px-4 bg-gradient-to-r from-purple-600 to-indigo-700">
       <div className="w-full max-w-3xl text-white">
         <div className="inline-block bg-white/20 text-white text-xs sm:text-sm font-semibold px-3 py-1 rounded-full mb-4">
@@ -92,7 +92,7 @@ const Internship = () => (
         </PillButton>
         </Link>
       </div>
-    </div>
+    </div> */}
 
 {/* How We Operate */}
 <section className="py-16 px-4 bg-white">

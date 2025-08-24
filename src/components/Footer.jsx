@@ -22,13 +22,13 @@ function Footer() {
           <Link to="/service/cloud-migration">Cloud Migration</Link>
         </div>*/}
 
-        {/* Column 3: Resources */}
+        {/* Column 3: Resources 
         <div className="flex flex-col min-w-[150px] mb-5 gap-2">
           <h4 className="text-[#AFCBDB] mb-2">RESOURCES</h4>
           <Link to="/blogs">Blogs</Link>
           <Link to="/success">Success Stories</Link>
           <Link to="/events">Events</Link>
-        </div>
+        </div> */}
 
         {/* Column 4: Products */}
         <div className="flex flex-col min-w-[150px] mb-5 gap-2">
@@ -48,22 +48,15 @@ function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-[#285f7a] mt-8 pt-4 text-center text-[#d9e6f2] text-xs">
-        <p>© 2025 Senkusha Solutions LLP</p>
-        <div>
-          <Link to="/privacy" className="hover:underline">
-            Privacy Policy
-          </Link>{" "}
-          |{" "}
-          <Link to="/terms" className="hover:underline">
-            Terms
-          </Link>{" "}
-          |{" "}
-          <Link to="/cookies" className="hover:underline">
-            Cookies
-          </Link>
-        </div>
-      </div>
+<div className="border-t border-[#285f7a] mt-8 pt-4 text-center text-[#d9e6f2] text-xs">
+  <p>© 2025 Senkusha Solutions LLP</p>
+  <div>
+    <span className="text-[#d9e6f2]">Privacy Policy</span> |{" "}
+    <span className="text-[#d9e6f2]">Terms</span> |{" "}
+    <span className="text-[#d9e6f2]">Cookies</span>
+  </div>
+</div>
+  
     </footer>
   );
 }

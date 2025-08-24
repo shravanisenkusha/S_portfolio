@@ -17,7 +17,9 @@ export default function ContactUs() {
   const [customQuestion, setCustomQuestion] = useState("");
   const [isFooterVisible, setIsFooterVisible] = useState(false);
   const footerRef = useRef(null);
+  const chatRef = useRef(null); // ✅ for click outside detection
 
+  // Footer observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -30,6 +32,21 @@ export default function ContactUs() {
       if (footerRef.current) observer.unobserve(footerRef.current);
     };
   }, []);
+
+  // ✅ Close chat when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (chatRef.current && !chatRef.current.contains(e.target)) {
+        setShowChatBox(false);
+      }
+    };
+    if (showChatBox) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showChatBox]);
 
   const answers = {
     "What kind of data solutions do you offer?": "We offer end-to-end solutions including data integration, ETL pipelines, analytics dashboards, and cloud data warehousing.",
@@ -228,11 +245,25 @@ export default function ContactUs() {
 
       {/* Chat Box */}
       {showChatBox && (
-        <div className="fixed bottom-28 right-4 sm:right-6 w-[95%] sm:w-80 max-h-[500px] bg-white shadow-2xl border border-gray-200 rounded-xl p-4 z-50 overflow-y-auto">
-          <h3 className="text-lg font-semibold text-gray-800 mb-2 flex items-center gap-2">
-            <MessageSquare className="w-5 h-5 text-purple-600" />
-            Chat with Us
-          </h3>
+        <div
+          ref={chatRef}
+          className="fixed bottom-28 right-4 sm:right-6 w-[95%] sm:w-80 max-h-[500px] bg-white shadow-2xl border border-gray-200 rounded-xl p-4 z-50 overflow-y-auto"
+        >
+          {/* ✅ Header with Close button */}
+          <div className="flex items-center justify-between mb-2">
+            <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
+              <MessageSquare className="w-5 h-5 text-purple-600" />
+              Chat with Us
+            </h3>
+            <button
+              onClick={() => setShowChatBox(false)}
+              className="p-1 rounded-full text-gray-500 hover:text-purple-600 hover:bg-gray-100 transition"
+              aria-label="Close Chat"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
           <p className="text-sm text-gray-600 mb-3">Quick Questions:</p>
           <div className="space-y-2 mb-4">
             {Object.keys(answers).map((q, idx) => (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { MessageSquare, X } from "lucide-react";
 import { products, services } from "../data";
 import Navbar from "../components/Navbar";
@@ -8,32 +8,49 @@ import HeroHeader from "../components/HeroHeader";
 import TimelineSection from "../components/TimeLine";
 import Internship from "./Internship";
 
-// Example answers for quick FAQ (you can customize these)
-const answers = {
-  "What services do you offer?": "We provide web development, mobile apps, and cloud solutions.",
-  "How can I contact support?": "You can reach us via the contact form or live chat.",
-  "Do you offer internships?": "Yes, check out the internship section for details."
-};
-
 export default function HomePage() {
   const [showChatBox, setShowChatBox] = useState(false);
   const [customQuestion, setCustomQuestion] = useState("");
   const [faqHistory, setFaqHistory] = useState([]);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
 
-  // Detect footer visibility (so button style can change)
-  useEffect(() => {
-    const footer = document.querySelector("footer");
-    if (!footer) return;
+  const footerRef = useRef(null);
+  const chatRef = useRef(null);
 
+  // Example FAQ answers
+  const answers = {
+    "What services do you offer?":
+      "We provide web development, mobile apps, and cloud solutions.",
+    "How can I contact support?":
+      "You can reach us via the contact form or live chat.",
+    "Do you offer internships?":
+      "Yes, check out the internship section for details."
+  };
+
+  // Detect footer visibility
+  useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setIsFooterVisible(entry.isIntersecting),
       { threshold: 0.1 }
     );
-    observer.observe(footer);
-
-    return () => observer.disconnect();
+    if (footerRef.current) observer.observe(footerRef.current);
+    return () => {
+      if (footerRef.current) observer.unobserve(footerRef.current);
+    };
   }, []);
+
+  // ✅ Close chat when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (chatRef.current && !chatRef.current.contains(e.target)) {
+        setShowChatBox(false);
+      }
+    };
+    if (showChatBox) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [showChatBox]);
 
   // Handle quick question click
   const handleQuestionClick = (question) => {
@@ -53,12 +70,10 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 relative flex flex-col">
       <Navbar />
       <HeroHeader />
       <TimelineSection />
-
-      {/* Internship Section */}
       <Internship />
 
       {/* Products Grid Section */}
@@ -74,17 +89,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services Carousel Section 
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            Our Services
-          </h2>
-          <ServicesCarausel services={services} />
-        </div>
-      </section>*/}
-
-      <Footer />
+      {/* Footer */}
+      <div ref={footerRef}>
+        <Footer />
+      </div>
 
       {/* Chat Button */}
       <button
@@ -100,11 +108,25 @@ export default function HomePage() {
 
       {/* Chat Box */}
       {showChatBox && (
-        <div className="fixed bottom-28 right-4 sm:right-6 w-[95%] sm:w-80 max-h-[500px] bg-white shadow-2xl border border-gray-200 rounded-xl p-4 z-50 overflow-y-auto">
-          <h3 className="text-lg font-semibold text-gray-800 mb-2 flex items-center gap-2">
-            <MessageSquare className="w-5 h-5 text-purple-600" />
-            Chat with Us
-          </h3>
+        <div
+          ref={chatRef}
+          className="fixed bottom-28 right-4 sm:right-6 w-[95%] sm:w-80 max-h-[500px] bg-white shadow-2xl border border-gray-200 rounded-xl p-4 z-50 overflow-y-auto"
+        >
+          {/* ✅ Header with Close button */}
+          <div className="flex items-center justify-between mb-2">
+            <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
+              <MessageSquare className="w-5 h-5 text-purple-600" />
+              Chat with Us
+            </h3>
+            <button
+              onClick={() => setShowChatBox(false)}
+              className="p-1 rounded-full text-gray-500 hover:text-purple-600 hover:bg-gray-100 transition"
+              aria-label="Close Chat"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
           <p className="text-sm text-gray-600 mb-3">Quick Questions:</p>
           <div className="space-y-2 mb-4">
             {Object.keys(answers).map((q, idx) => (
