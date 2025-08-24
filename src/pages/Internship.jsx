@@ -66,51 +66,57 @@ const Internship = () => (
   <div className="flex flex-col">
 
     {/* Partnered Colleges */}
-    <section className="py-10 px-4 bg-gray-50">
-      <div className="max-w-5xl mx-auto">
-        <div className="rounded-2xl shadow-xl p-8 flex flex-col sm:flex-row items-start gap-6 
-          bg-gradient-to-br from-purple-500 to-purple-700 text-white">
-          
-          {/* Icon / Logo */}
-          <div className="flex-shrink-0">
-            <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center">
-              <img 
-                src={collegelogo}   // ✅ correct usage
-                alt="College Logo"
-                className="h-10 w-10 object-contain"
-              />
-            </div>
-          </div>
+<section className="py-10 px-4">
+  <div className="max-w-5xl mx-auto">
+    <div className="rounded-2xl shadow-lg p-8 flex flex-col sm:flex-row items-center gap-6 
+      bg-purple-50/70 backdrop-blur-lg border border-purple-200 text-purple-900">
 
-          {/* Text */}
-          <div className="flex flex-col gap-3">
-            <h2 className="text-xl font-bold">
-              Tied Up With <span className="text-yellow-300">Shri Vile Parle Kelavani Mandal's</span>
-            </h2>
+     {/* Icon / Logo */}
+<div className="flex-shrink-0">
+  <div className="w-24 h-24 flex items-center justify-center">
+    <img 
+      src={collegelogo}  // ✅ your logo
+      alt="College Logo"
+      className="h-24 w-24 object-contain shadow-md transition-transform duration-300 hover:scale-110"
+    />
+  </div>
+</div>
 
-            <div className="space-y-2">
-              <a 
-                href="https://www.djsce.ac.in/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block bg-white/10 px-4 py-2 rounded-lg shadow-md hover:bg-white/20 transition"
-              >
-                Dwarkadas Jivanlal Sanghvi College of Engineering, Mumbai
-              </a>
 
-              <a 
-                href="https://www.sbmp.ac.in/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block bg-white/10 px-4 py-2 rounded-lg shadow-md hover:bg-white/20 transition"
-              >
-                Shri Bhagubhai Mafatlal Polytechnic and College of Engineering, Mumbai
-              </a>
-            </div>
-          </div>
+      {/* Text */}
+      <div className="flex flex-col gap-4 text-center sm:text-left">
+        <h2 className="text-2xl font-bold">
+          Tied Up With{" "}
+          <span className="bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent font-extrabold">
+            Shri Vile Parle Kelavani Mandal's
+          </span>
+        </h2>
+
+        <div className="space-y-3">
+          <a 
+            href="https://www.djsce.ac.in/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="block bg-purple-100/50 text-purple-900 font-semibold px-4 py-2 rounded-lg 
+              shadow-sm hover:bg-purple-200/70 transition"
+          >
+            Dwarkadas Jivanlal Sanghvi College of Engineering, Mumbai
+          </a>
+
+          <a 
+            href="https://www.sbmp.ac.in/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="block bg-purple-100/50 text-purple-900 font-semibold px-4 py-2 rounded-lg 
+              shadow-sm hover:bg-purple-200/70 transition"
+          >
+            Shri Bhagubhai Mafatlal Polytechnic and College of Engineering, Mumbai
+          </a>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     {/* How We Operate */}
     <section className="py-16 px-4 bg-white">
